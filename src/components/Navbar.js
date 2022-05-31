@@ -22,20 +22,35 @@ const Nav = (props) => {
         />
         <div className={styles.searchBtn}>🔍</div>
       </div>
-      <div className={styles.cartIconContainer}>
-        <Link to="/cart">
+      <div className={styles.navOptions}>
+        <div className={styles.user}>
           <img
-            className={styles.cartIcon}
-            src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png"
-            alt=""
+            src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+            alt="userImage"
           />
-        </Link>
-        <span
-          className={styles.cartCount}
-          style={{ display: props.count ? "block" : "none" }}
-        >
-          {props.count}
-        </span>
+          <button className={styles.loginBtn}>Login</button>
+        </div>
+        <div className={styles.wishlist}>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+            alt="wishlist"
+          />
+        </div>
+        <div className={styles.cartIconContainer}>
+          <Link to="/cart">
+            <img
+              className={styles.cartIcon}
+              src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png"
+              alt=""
+            />
+          </Link>
+          <span
+            className={styles.cartCount}
+            style={{ display: props.count ? "block" : "none" }}
+          >
+            {props.count}
+          </span>
+        </div>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@
   height: 40px;
   padding: 0 1rem;
   background: linear-gradient(to right, #ffefba, #d8d7d7);
+  z-index: 5;
 }
 
 .logo img {
@@ -29,6 +30,31 @@
 .searchInput:focus {
   outline: none;
   background-color: none;
+}
+
+.navOptions {
+  display: flex;
+  column-gap: 2rem;
+  align-items: center;
+}
+
+.user img,
+.wishlist img {
+  width: 20px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0.25rem;
+}
+
+.loginBtn {
+  background: none;
+  border: 0;
+  cursor: pointer;
 }
 
 .cartIcon {
