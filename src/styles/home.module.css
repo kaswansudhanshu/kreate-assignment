@@ -1,7 +1,3 @@
-.mainSlider {
-  height: 400px;
-}
-
 .sliderImages {
   position: relative;
   display: flex;
@@ -11,7 +7,6 @@
 
 .mainSlider img {
   width: 100%;
-  position: absolute;
   top: 10px;
   background-repeat: no-repeat;
   background-position: center;
@@ -97,7 +92,12 @@
   right: 0;
 }
 
-/* .scrollRightBtn:hover,
-.scrollLeftBtn:hover {
-  opacity: 0.5;
-} */
+.viewAll {
+  text-decoration: none;
+  font-weight: bold;
+  color: #080808;
+}
+
+.viewAll:hover {
+  color: red;
+}

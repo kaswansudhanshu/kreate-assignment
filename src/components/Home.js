@@ -1,24 +1,8 @@
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "../styles/home.module.css";
-import CardDetails from "./Cards";
 import ProductCards from "./ProductCards";
-import axios from "axios";
 
-const Home = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const fetchProducts = async () => {
-    const res = await axios.get(
-      "https://api.unsplash.com/search/photos?page=1&query=office&client_id=nG0L9trHtN6c5pWb0fwH7ZJZhoy6eqZOIpILhbYDydg"
-    );
-    const data = res.data;
-    setProducts(data.results);
-  };
-
+const Home = ({ products }) => {
   return (
     <div className="Home_Component">
       <div className={styles.mainSlider}>
@@ -33,7 +17,9 @@ const Home = () => {
       <div className={styles.trendingList}>
         <div className={styles.trendingHeader}>
           <h3>Trending Item</h3>
-          <button type="button">View All</button>
+          <Link to="/products" className={styles.viewAll}>
+            View All
+          </Link>
         </div>
         {products ? <ProductCards products={products} /> : ""}
       </div>
@@ -41,7 +27,9 @@ const Home = () => {
       <div className={styles.newArrivalList}>
         <div className={styles.newArrivalHeader}>
           <h3>New Arrival</h3>
-          <button type="button">View All</button>
+          <Link to="/products" className={styles.viewAll}>
+            View All
+          </Link>
         </div>
         {products ? <ProductCards products={products} /> : ""}
       </div>

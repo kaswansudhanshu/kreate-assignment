@@ -1,17 +1,16 @@
 import styles from "../styles/navbar.module.css";
 import { Link } from "react-router-dom";
-// import Menu from "./Menu";
 
-const Nav = (props) => {
+const Nav = ({ cartCount }) => {
   return (
     <div className={styles.navbar}>
       <div className={styles.logo}>
-        <a href="/" onClick={(e) => e.preventDefault()}>
+        <Link to="/">
           <img
             src="https://kreateworld.in/_next/static/media/logo-full.f542a263.svg"
             alt="logo"
           />
-        </a>
+        </Link>
       </div>
       <div className={styles.searchField}>
         <input
@@ -44,12 +43,12 @@ const Nav = (props) => {
               alt=""
             />
           </Link>
-          <span
+          <div
             className={styles.cartCount}
-            style={{ display: props.count ? "block" : "none" }}
+            style={{ display: cartCount ? "block" : "none" }}
           >
-            {props.count}
-          </span>
+            {cartCount}
+          </div>
         </div>
       </div>
     </div>

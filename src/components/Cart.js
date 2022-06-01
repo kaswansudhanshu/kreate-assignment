@@ -1,11 +1,19 @@
+import { Link } from "react-router-dom";
 import styles from "../styles/cart.module.css";
+import cartImage from "../styles/empty_cart.png";
 
 const Cart = (props) => {
   const { products } = props;
   return (
     <div className={styles.cart}>
       {!products ? (
-        <h1>No items in Cart</h1>
+        <div className={styles.emptyCart}>
+          <h1>No items in Cart</h1>
+          <img src={`${cartImage}`} />
+          <p>
+            Continue Shopping - <Link to="/">Go To Homepage</Link>
+          </p>
+        </div>
       ) : (
         products.map((item) => {
           return (

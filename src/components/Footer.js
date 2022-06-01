@@ -14,6 +14,8 @@ const style = {
     borderTop: "2px solid black",
     textAlign: "center",
     paddingBottom: ".5rem",
+    position: "relative",
+    bottom: "0",
   },
 };
 
