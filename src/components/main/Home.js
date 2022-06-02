@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import styles from "../styles/home.module.css";
-import ProductCards from "./ProductCards";
+import styles from "../../styles/home.module.css";
+import ProductCards from "../product/ProductCards";
 
 const Home = ({ products }) => {
   return (
@@ -17,7 +17,7 @@ const Home = ({ products }) => {
       <div className={styles.trendingList}>
         <div className={styles.trendingHeader}>
           <h3>Trending Item</h3>
-          <Link to="/products" className={styles.viewAll}>
+          <Link to={`/products/pages`} className={styles.viewAll}>
             View All
           </Link>
         </div>
@@ -27,7 +27,7 @@ const Home = ({ products }) => {
       <div className={styles.newArrivalList}>
         <div className={styles.newArrivalHeader}>
           <h3>New Arrival</h3>
-          <Link to="/products" className={styles.viewAll}>
+          <Link to={`/products/pages`} className={styles.viewAll}>
             View All
           </Link>
         </div>

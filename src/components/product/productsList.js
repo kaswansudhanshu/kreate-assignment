@@ -1,4 +1,4 @@
-import CardDetails from "./Cards";
+import CardDetails from "../main/Cards";
 
 const ProductsList = ({ products, getNextPage, getPrevPage }) => {
   return (
@@ -8,20 +8,30 @@ const ProductsList = ({ products, getNextPage, getPrevPage }) => {
           return <CardDetails product={product} key={"prod-" + index} />;
         })}
       </div>
-      <button className="prevBtn" style={styles.prevBtn} onClick={getPrevPage}>
-        Prev.
-      </button>
-      <button className="nextBtn" style={styles.nextBtn} onClick={getNextPage}>
-        Next.
-      </button>
+      <div style={styles.pageBtns}>
+        <button
+          className="prevBtn"
+          style={styles.prevBtn}
+          onClick={getPrevPage}
+        >
+          Prev.
+        </button>
+        <button
+          className="nextBtn"
+          style={styles.nextBtn}
+          onClick={getNextPage}
+        >
+          Next.
+        </button>
+      </div>
     </div>
   );
 };
 
 const styles = {
   productsContainer: {
-    display: "flex",
-    flexWrap: "wrap",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr 1fr",
     columnGap: "5rem",
     rowGap: "2rem",
     alignItems: "center",
@@ -30,25 +40,31 @@ const styles = {
   productsList: {
     padding: "1rem 0rem",
     position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  pageBtns: {
+    marginTop: "1.5rem",
   },
   prevBtn: {
     position: "absolute",
     left: "50px",
     bottom: "10px",
     background: "transparent",
-    border: "0",
+    border: "1px solid black",
+    borderRadius: "10px",
     cursor: "pointer",
-    ":hover": {
-      color: "red",
-    },
   },
   nextBtn: {
     position: "absolute",
     right: "50px",
     bottom: "10px",
     background: "transparent",
-    border: "0",
     cursor: "pointer",
+    border: "1px solid black",
+    borderRadius: "10px",
   },
 };
 

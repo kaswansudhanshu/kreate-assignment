@@ -1,5 +1,5 @@
-import CardDetails from "./Cards";
-import styles from "../styles/home.module.css";
+import CardDetails from "../main/Cards";
+import styles from "../../styles/home.module.css";
 
 const ProductCards = ({ products }) => {
   const scrollRight = (e) => {

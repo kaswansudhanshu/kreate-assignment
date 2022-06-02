@@ -1,9 +1,5 @@
-import Nav from "./Navbar";
-import Cart from "./Cart";
-import Home from "./Home";
-import Footer from "./Footer";
-import ProductsList from "./productsList";
-import ProductDetails from "./ProductDetails";
+import { Nav, Cart, Home, Footer } from "./main/index";
+import { ProductsList, ProductDetails } from "./product/index";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import axios from "axios";
@@ -12,8 +8,9 @@ function App() {
   const [products, setProducts] = useState([]);
   const [listProducts, setListProducts] = useState(products);
   const [currPage, setCurrPage] = useState(1);
-  const [cartCount, setcartCount] = useState(1);
+  const [cartCount, setcartCount] = useState(0);
   const [cartList, setCartList] = useState([]);
+  const [cartItemQty, setCartItemQty] = useState({});
 
   useEffect(() => {
     fetchProducts().then((data) => {
@@ -32,7 +29,7 @@ function App() {
 
   function nextPage() {
     setCurrPage(() => currPage + 1);
-    fetchProducts(currPage).then((data) => {
+    fetchProducts(currPage + 1).then((data) => {
       setListProducts(data);
     });
   }
@@ -47,10 +44,14 @@ function App() {
     <div className="App">
       <Nav cartCount={cartCount} />
       <Routes>
-        <Route exact path="*" element={<Home products={products} />} />
         <Route
           exact
-          path="/products"
+          path="*"
+          element={<Home products={products} currPage={currPage} />}
+        />
+        <Route
+          exact
+          path={`/products/pages`}
           element={
             <ProductsList
               products={listProducts}
@@ -60,15 +61,23 @@ function App() {
             />
           }
         />
-        <Route exact path="/cart" element={<Cart />} />
         <Route
           exact
-          path="/details"
+          path="/cart"
+          element={<Cart products={cartList} cartItemQty={cartItemQty} />}
+        />
+        <Route
+          exact
+          path="/product"
           element={
             <ProductDetails
               product={products ? products[0] : ""}
               setcartCount={setcartCount}
               cartCount={cartCount}
+              cartList={cartList}
+              setCartList={setCartList}
+              cartItemQty={cartItemQty}
+              setCartItemQty={setCartItemQty}
             />
           }
         />
