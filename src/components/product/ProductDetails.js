@@ -11,35 +11,51 @@ const ProductDetails = ({
   cartItemQty,
   setCartItemQty,
 }) => {
-  product.price = 99;
+  product.price = 99; //Just a dummy price
+
+  // Quantity of product to be added to cart
   const [productQty, setProductQty] = useState(1);
+
+  // Whether product added to cart or not
   const [addedToCart, setAddedToCart] = useState(false);
 
+  // increase the qty to be added
   function increaseQty() {
     setProductQty(() => productQty + 1);
+    // set addedToCart False to add more of that item to cart
     setAddedToCart(false);
   }
 
+  // decrease the qty of item to be added , not less than 1
   function decreaseQty() {
     setAddedToCart(false);
     if (productQty === 1) return;
     setProductQty(() => productQty - 1);
   }
 
+  // add items to the cart
   function addToCart() {
+    // update cart items count
     setcartCount(() => cartCount + productQty);
     setAddedToCart(true);
+
+    // add items to the cart list
     addToCartList();
   }
 
   function addToCartList() {
     setCartList(() => {
+      // check if item already in list, if Yes just update quantity and return
       if (cartList.includes(product)) return cartList;
+
+      // if new item update the cart list
       const newCartList = [].concat(cartList);
       newCartList.push(product);
       return newCartList;
     });
+
     setCartItemQty(() => {
+      // check if the item already have some qty added to cart
       const newCartItemQty = Object.assign({}, cartItemQty);
       newCartItemQty[product.id] = cartItemQty[product.id]
         ? cartItemQty[product.id] + productQty
@@ -73,6 +89,7 @@ const ProductDetails = ({
           {!addedToCart ? (
             <button onClick={addToCart}>Add to Cart</button>
           ) : (
+            // if added to cart go the cart page
             <Link to="/cart">
               <button>Go to Cart</button>
             </Link>

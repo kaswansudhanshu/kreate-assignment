@@ -1,3 +1,4 @@
+/* Product List */
 .productsContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -14,6 +15,8 @@
   justify-content: center;
   align-items: center;
 }
+
+/* Pagination Buttons */
 .pageBtns {
   margin-top: 1.5rem;
 }
@@ -34,12 +37,14 @@
   right: 50px;
 }
 
+/* for Tablet Screens */
 @media screen and (max-width: 924px) {
   .productsContainer {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
+/* For Mobile Screens */
 @media screen and (max-width: 664px) {
   .productsContainer {
     grid-template-columns: 1fr 1fr;

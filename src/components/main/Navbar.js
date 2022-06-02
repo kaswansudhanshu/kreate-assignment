@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const Nav = ({ cartCount }) => {
   return (
+    // Logo and Home Page Link
     <div className={styles.navbar}>
       <div className={styles.logo}>
         <Link to="/">
@@ -12,6 +13,8 @@ const Nav = ({ cartCount }) => {
           />
         </Link>
       </div>
+
+      {/* Search Field */}
       <div className={styles.searchField}>
         <input
           name="search"
@@ -22,6 +25,7 @@ const Nav = ({ cartCount }) => {
         <div className={styles.searchBtn}>🔍</div>
       </div>
       <div className={styles.navOptions}>
+        {/* User Account */}
         <div className={styles.user}>
           <img
             src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
@@ -29,12 +33,16 @@ const Nav = ({ cartCount }) => {
           />
           <button className={styles.loginBtn}>Login</button>
         </div>
+
+        {/* Wishlist */}
         <div className={styles.wishlist}>
           <img
             src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
             alt="wishlist"
           />
         </div>
+
+        {/* Cart */}
         <div className={styles.cartIconContainer}>
           <Link to="/cart">
             <img

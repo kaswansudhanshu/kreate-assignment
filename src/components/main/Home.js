@@ -5,6 +5,7 @@ import ProductCards from "../product/ProductCards";
 const Home = ({ products }) => {
   return (
     <div className="Home_Component">
+      {/* Slider for Offers, Functionality to be added */}
       <div className={styles.mainSlider}>
         <div className={styles.sliderImages}>
           <img
@@ -13,7 +14,7 @@ const Home = ({ products }) => {
           />
         </div>
       </div>
-
+      {/* Trending List Section */}
       <div className={styles.trendingList}>
         <div className={styles.trendingHeader}>
           <h3>Trending Item</h3>
@@ -24,9 +25,13 @@ const Home = ({ products }) => {
         {products ? <ProductCards products={products} /> : ""}
       </div>
 
+      {/* Any Other section will go here in future to maintain the page aesthetics */}
+
+      {/* New Arrival Section */}
       <div className={styles.newArrivalList}>
         <div className={styles.newArrivalHeader}>
           <h3>New Arrival</h3>
+          {/* Link to all products in this section */}
           <Link to={`/products/pages`} className={styles.viewAll}>
             View All
           </Link>

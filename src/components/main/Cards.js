@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import styles from "../../styles/home.module.css";
 
+// Card details component
 const CardDetails = ({ product }) => {
   return (
+    // link to product detail page
     <Link to="/product" style={{ textDecoration: "none", color: "black" }}>
       <div className={styles.card}>
         <div className={styles.productImg}>

@@ -37,10 +37,12 @@ function CartItem(props) {
   const { product, cartItemQty } = props;
 
   return (
+    //To avoid rendering extra node
     <React.Fragment>
       <div className={styles.cartContainer}>
         <div className={styles.cartItem}>
           <div className={styles.leftBlock}>
+            {/* Product image */}
             <img
               src={product.urls.thumb}
               alt=""
@@ -75,6 +77,7 @@ function CartItem(props) {
         </div> */}
           </div>
         </div>
+        {/* Cart Amount */}
         <div className={styles.cartTotal}>
           <h4>Total :</h4>
           <p>$ {product.price * cartItemQty[product.id]} </p>
